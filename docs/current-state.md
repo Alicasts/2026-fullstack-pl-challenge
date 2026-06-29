@@ -1,24 +1,24 @@
 # Current State
 
 Phase:
-Implementation — Incremento 2 (Users Domain)
+Implementation — Incremento 2 concluído (Users Domain Base)
 
 Completed:
-- Docker (app, nginx, postgres)
-- Laravel instalado e rodando
-- Banco PostgreSQL conectado
-- Ambiente acessível via browser
-- Correções de permissões e infraestrutura finalizadas
+- Infraestrutura Docker + Laravel + PostgreSQL
+- Migration de users consolidada
+- Seed de usuário ADMIN executado com sucesso
+- Model User ajustado
+- Ambiente estabilizado (sem SQLite/cache issues)
 
 In Progress:
-- Modelagem inicial do domínio de usuários
+- Nenhum
 
 Pending:
-- Migration de users
-- Model User com role
-- Seed de usuário ADMIN
-- Validação de persistência no banco
+- Autenticação (login + token)
+- Middleware de autorização por role
+- CRUD completo de usuários
+- Regras de negócio do domínio de agendamentos
 
 Notes:
-- Infraestrutura está estável e não deve ser modificada neste estágio.
-- Foco atual é domínio de usuários.
+- O domínio de usuários está funcional na camada de dados.
+- Próximo passo será autenticação e controle de acesso.

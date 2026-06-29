@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Implementar domínio de usuários (Incremento 2) com migration, model e seed inicial de administrador.
+Finalizar base do domínio de usuários e preparar autenticação.
 
 Next step:
-Criar estrutura de Users (migration + model + seed admin) e validar persistência no banco.
+Implementar autenticação (login + token) e controle de acesso por perfil.
 
 Blockers:
 Nenhum.
 
 Status:
-Ambiente estabilizado (Docker + Laravel + PostgreSQL) e pronto para desenvolvimento de domínio.
+Incremento 2 concluído com sucesso.
