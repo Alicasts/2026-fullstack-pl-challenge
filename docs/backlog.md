@@ -2,11 +2,11 @@
 
 ## EPIC 1 — Infraestrutura (INCREMENTO 1)
 
-- [ ] Criar projeto Laravel
-- [ ] Configurar Docker (app + postgres)
-- [ ] Configurar .env
-- [ ] Conectar Laravel ao PostgreSQL
-- [ ] Rodar migrations base
+- [x] Criar projeto Laravel
+- [x] Configurar Docker (app + postgres)
+- [x] Configurar .env
+- [x] Conectar Laravel ao PostgreSQL
+- [x] Rodar migrations base
 - [ ] Criar migration inicial de users (estrutura mínima)
 - [ ] Validar ambiente (health check endpoint)
 
@@ -25,9 +25,9 @@
 
 ## EPIC 3 — Usuários
 
-- [ ] Modelagem
-- [ ] Migration
-- [ ] Seed administrador
+- [x] Modelagem
+- [x] Migration
+- [x] Seed administrador
 - [ ] CRUD
 - [ ] Validações
 - [ ] Testes
