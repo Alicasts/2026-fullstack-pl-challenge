@@ -1,15 +1,14 @@
 # Backlog Técnico
 
-## EPIC 1 — Infraestrutura
+## EPIC 1 — Infraestrutura (INCREMENTO 1)
 
-- [ ] Docker
-- [ ] Docker Compose
-- [ ] PHP
-- [ ] Laravel
-- [ ] PostgreSQL
-- [ ] Composer
-- [ ] PHPUnit
-- [ ] Estrutura inicial do projeto
+- [ ] Criar projeto Laravel
+- [ ] Configurar Docker (app + postgres)
+- [ ] Configurar .env
+- [ ] Conectar Laravel ao PostgreSQL
+- [ ] Rodar migrations base
+- [ ] Criar migration inicial de users (estrutura mínima)
+- [ ] Validar ambiente (health check endpoint)
 
 ---
 

@@ -1,14 +1,16 @@
 # Session
 
 Current objective:
-Documentar requisitos e decisões iniciais para o projeto de agendamento.
+Iniciar Incremento 1 — Setup da infraestrutura backend (Laravel + PostgreSQL + Auth base).
 
 Next step:
-Definir o primeiro incremento de implementação, priorizando o módulo de usuários e a infraestrutura de autenticação/perfil.
+Criar projeto Laravel, configurar Docker e conectar PostgreSQL.
 
 Blockers:
 Nenhum.
 
-Observações:
-- Deve-se manter a documentação atualizada a cada etapa.
-- A conversa não é fonte de verdade; os requisitos devem ser consultados em docs/requirements.md.
+Scope do incremento:
+- Laravel instalado e executando
+- Banco PostgreSQL conectado
+- Estrutura base do projeto pronta
+- Preparação para autenticação (Sanctum será definido depois da base)
