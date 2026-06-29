@@ -97,3 +97,39 @@ Toda regra de negócio deverá possuir testes automatizados.
 
 - Maior segurança para evolução incremental
 - Menor risco de regressão
+
+# ADR-004 — Authentication com Sanctum
+
+## Contexto
+
+- O desafio exige controle de permissões entre Administrador e Atendente.
+- Será necessária autenticação para proteger endpoints.
+- O desafio não especifica JWT, sessão ou outro mecanismo.
+
+## Decisão
+
+- Utilizar Laravel Sanctum para autenticação baseada em tokens.
+
+## Justificativa
+
+- Solução oficial do Laravel.
+- Integração simples.
+- Menor complexidade que JWT.
+- Atende completamente aos requisitos da challenge.
+- Facilita proteção de rotas com middleware nativo.
+
+## Alternativas
+
+- JWT (complexidade desnecessária).
+- Sessão tradicional (menos adequada para API).
+- Basic Auth (não atende bem ao cenário).
+
+## Consequências
+
+* Positivas
+- Menor esforço de manutenção.
+- Solução conhecida por desenvolvedores Laravel.
+- Boa integração com testes.
+
+* Negativas
+- Dependência de um pacote oficial adicional (embora mantido pelo ecossistema Laravel).
