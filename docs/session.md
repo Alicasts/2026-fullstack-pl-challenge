@@ -1,16 +1,13 @@
 # Session
 
 Current objective:
-Iniciar Incremento 1 — Setup da infraestrutura backend (Laravel + PostgreSQL + Auth base).
+Concluir estabilização do ambiente de desenvolvimento (Docker + Laravel) e iniciar implementação do módulo de usuários.
 
 Next step:
-Criar projeto Laravel, configurar Docker e conectar PostgreSQL.
+Iniciar Incremento 1 — implementação do domínio de usuários (migration + seed + base de autenticação futura).
 
 Blockers:
 Nenhum.
 
-Scope do incremento:
-- Laravel instalado e executando
-- Banco PostgreSQL conectado
-- Estrutura base do projeto pronta
-- Preparação para autenticação (Sanctum será definido depois da base)
+Status:
+Infraestrutura validada e aplicação Laravel acessível via browser.

@@ -1,26 +1,25 @@
 # Current State
 
 Phase:
-Implementation — Incremento 1 (Infrastructure Setup)
+Implementation — Incremento 1 (Domain Initialization)
 
 Completed:
-- Requirements documentados
-- ADRs definidos
-- Backlog estruturado
-- Arquitetura inicial definida
-- Decisões de stack concluídas
+- Docker (app, nginx, postgres)
+- Laravel instalado e rodando
+- Banco PostgreSQL conectado
+- Problemas de porta resolvidos
+- Problemas de permissões corrigidos
+- Aplicação acessível via http://localhost:8080
 
 In Progress:
-- Setup do ambiente Laravel
-- Configuração de Docker + PostgreSQL
+- Preparação do domínio de usuários
 
 Pending:
-- Instalação e bootstrap do Laravel
-- Configuração de conexão com banco
-- Primeira migration base (users)
-- Setup inicial de ambiente dev
-- Definição de autenticação (Sanctum será implementado após base estável)
+- Migration de users
+- Seed de usuário admin
+- Estrutura de roles (ADMIN / ATTENDANT)
+- Base para autenticação (Sanctum será introduzido depois)
 
 Notes:
-- O foco atual é infraestrutura mínima funcional.
-- Nenhuma feature de negócio deve ser implementada ainda.
+- Ambiente está estável e reproduzível.
+- Infraestrutura não requer mais ajustes neste momento.
