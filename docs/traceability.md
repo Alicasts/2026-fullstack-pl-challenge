@@ -2,7 +2,7 @@
 
 | Requisito | Implementação | Teste | Status |
 |-----------|---------------|--------|--------|
-| RQF-USER-001 | — | — | ⏳ |
+| RQF-USER-001 | — | — | 🚧 |
 | RQF-USER-002 | — | — | ⏳ |
 | RQF-USER-003 | — | — | ⏳ |
 | RQF-USER-004 | — | — | ⏳ |

@@ -1,22 +1,25 @@
 # Current State
 
 Phase:
-- Requirement Analysis
+Implementation — Incremento 1 (Domain Initialization)
 
 Completed:
-- Extração do conteúdo de docs/challange.docx
-- Documentação dos requisitos funcionais e não funcionais
-- Identificação de ambiguidades e perguntas abertas
-- Registro de decisões iniciais para arquitetura e escopo
-- Atualização dos documentos de projeto
+- Docker (app, nginx, postgres)
+- Laravel instalado e rodando
+- Banco PostgreSQL conectado
+- Problemas de porta resolvidos
+- Problemas de permissões corrigidos
+- Aplicação acessível via http://localhost:8080
+
+In Progress:
+- Preparação do domínio de usuários
 
 Pending:
-- Definição de backlog detalhado de implementação
-- Projeto da arquitetura de dados e da API
-- Configuração do ambiente de desenvolvimento
-- Desenvolvimento incremental da primeira feature
-- Validação de possíveis padrões de autenticação e autorização
+- Migration de users
+- Seed de usuário admin
+- Estrutura de roles (ADMIN / ATTENDANT)
+- Base para autenticação (Sanctum será introduzido depois)
 
-Notas:
-- A documentação é a fonte de verdade para implementação futura.
-- Nenhuma funcionalidade será implementada antes da definição do próximo incremento.
+Notes:
+- Ambiente está estável e reproduzível.
+- Infraestrutura não requer mais ajustes neste momento.

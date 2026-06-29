@@ -1,28 +1,28 @@
 # 2026 Fullstack PL Challenge
 
-Aplicação de gerenciamento de agendamentos e disponibilidade de atendentes, desenvolvida como estudo de caso para o processo seletivo SENAI/SC.
+Projeto fullstack para gerenciamento de usuários, disponibilidades e agendamentos.
 
-## Documentação
+Stack principal:
+- Backend: Laravel
+- Banco: PostgreSQL
+- Infra: Docker
+- Frontend: (definido posteriormente)
 
-- `docs/requirements.md` — requisitos funcionais e não funcionais extraídos do desafio.
-- `docs/decisions.md` — decisões iniciais de arquitetura, escopo e abordagens de implementação.
-- `docs/current-state.md` — estado atual do projeto e próximos marcos.
-- `docs/session.md` — objetivos da sessão e próximo passo planejado.
-- `docs/challange.docx` — documento original do desafio.
+---
 
-## Abordagem
+## Arquitetura
 
-- Desenvolvimento incremental: uma feature por vez.
-- A documentação é a fonte de verdade para implementação.
-- Todo código futuro deve referenciar os requisitos documentados.
+Estrutura base:
 
-## Estrutura
+Controller → Form Request → Service → Model (Eloquent) → PostgreSQL
 
-- `backend/` — código do backend em PHP.
-- `frontend/` — código do frontend em HTML/CSS/JavaScript.
-- `docker/` — suporte para ambiente de desenvolvimento.
-- `tests/` — casos de teste e validação.
+---
 
-## Próximo passo
+## Como rodar o projeto
 
-Definir o backlog inicial e iniciar o primeiro incremento com o módulo de usuários e autenticação.
+### 1. Subir o ambiente
+
+Na raiz do projeto:
+
+```bash
+docker compose up -d --build

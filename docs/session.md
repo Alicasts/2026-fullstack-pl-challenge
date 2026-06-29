@@ -1,14 +1,13 @@
 # Session
 
 Current objective:
-Documentar requisitos e decisões iniciais para o projeto de agendamento.
+Concluir estabilização do ambiente de desenvolvimento (Docker + Laravel) e iniciar implementação do módulo de usuários.
 
 Next step:
-Definir o primeiro incremento de implementação, priorizando o módulo de usuários e a infraestrutura de autenticação/perfil.
+Iniciar Incremento 1 — implementação do domínio de usuários (migration + seed + base de autenticação futura).
 
 Blockers:
 Nenhum.
 
-Observações:
-- Deve-se manter a documentação atualizada a cada etapa.
-- A conversa não é fonte de verdade; os requisitos devem ser consultados em docs/requirements.md.
+Status:
+Infraestrutura validada e aplicação Laravel acessível via browser.
