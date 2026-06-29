@@ -2,24 +2,22 @@
 
 namespace Database\Seeders;
 
-use App\Enums\UserRole;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AdminUserSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
-        User::query()->updateOrCreate([
-            'email' => 'admin@app.com',
-        ], [
+        User::create([
             'name' => 'Admin',
+            'email' => 'admin@app.com',
             'password' => Hash::make('password'),
-            'role' => UserRole::ADMIN->value,
+            'role' => 'ADMIN',
         ]);
     }
 }

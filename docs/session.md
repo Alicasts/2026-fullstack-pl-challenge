@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Concluir estabilização do ambiente de desenvolvimento (Docker + Laravel) e iniciar implementação do módulo de usuários.
+Finalizar base do domínio de usuários e preparar autenticação.
 
 Next step:
-Iniciar Incremento 1 — implementação do domínio de usuários (migration + seed + base de autenticação futura).
+Implementar autenticação (login + token) e controle de acesso por perfil.
 
 Blockers:
 Nenhum.
 
 Status:
-Infraestrutura validada e aplicação Laravel acessível via browser.
+Incremento 2 concluído com sucesso.

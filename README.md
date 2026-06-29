@@ -26,3 +26,6 @@ Na raiz do projeto:
 
 ```bash
 docker compose up -d --build
+docker exec -it laravel_app bash
+php artisan migrate
+php artisan db:seed --class=AdminUserSeeder
