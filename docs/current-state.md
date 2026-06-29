@@ -1,25 +1,24 @@
 # Current State
 
 Phase:
-Implementation — Incremento 1 (Domain Initialization)
+Implementation — Incremento 2 (Users Domain)
 
 Completed:
 - Docker (app, nginx, postgres)
 - Laravel instalado e rodando
 - Banco PostgreSQL conectado
-- Problemas de porta resolvidos
-- Problemas de permissões corrigidos
-- Aplicação acessível via http://localhost:8080
+- Ambiente acessível via browser
+- Correções de permissões e infraestrutura finalizadas
 
 In Progress:
-- Preparação do domínio de usuários
+- Modelagem inicial do domínio de usuários
 
 Pending:
 - Migration de users
-- Seed de usuário admin
-- Estrutura de roles (ADMIN / ATTENDANT)
-- Base para autenticação (Sanctum será introduzido depois)
+- Model User com role
+- Seed de usuário ADMIN
+- Validação de persistência no banco
 
 Notes:
-- Ambiente está estável e reproduzível.
-- Infraestrutura não requer mais ajustes neste momento.
+- Infraestrutura está estável e não deve ser modificada neste estágio.
+- Foco atual é domínio de usuários.

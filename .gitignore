@@ -1,0 +1,34 @@
+# =====================
+# Laravel (backend)
+# =====================
+backend/vendor/
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+backend/storage/*.key
+backend/storage/logs/
+backend/storage/framework/cache/
+backend/storage/framework/sessions/
+backend/storage/framework/views/
+
+backend/bootstrap/cache/*.php
+
+# Mantém estrutura vazia do storage (boa prática)
+!backend/storage/.gitignore
+!backend/storage/app/.gitignore
+!backend/storage/app/public/.gitignore
+!backend/storage/framework/.gitignore
+!backend/storage/logs/.gitignore
+!backend/bootstrap/cache/.gitignore
+
+# =====================
+# Docker / Infra
+# =====================
+docker/.env
+
+# =====================
+# System
+# =====================
+.DS_Store
+*.log

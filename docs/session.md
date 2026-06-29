@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Concluir estabilização do ambiente de desenvolvimento (Docker + Laravel) e iniciar implementação do módulo de usuários.
+Implementar domínio de usuários (Incremento 2) com migration, model e seed inicial de administrador.
 
 Next step:
-Iniciar Incremento 1 — implementação do domínio de usuários (migration + seed + base de autenticação futura).
+Criar estrutura de Users (migration + model + seed admin) e validar persistência no banco.
 
 Blockers:
 Nenhum.
 
 Status:
-Infraestrutura validada e aplicação Laravel acessível via browser.
+Ambiente estabilizado (Docker + Laravel + PostgreSQL) e pronto para desenvolvimento de domínio.
