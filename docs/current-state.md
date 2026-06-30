@@ -1,7 +1,7 @@
 # Current State
 
 Phase:
-Implementation — Incremento 10 concluído (Frontend Exclusão de Usuários)
+Implementation — Incremento 11 concluído (Frontend Correção RQF-USER-003: edição pelo próprio ATTENDANT)
 
 Completed:
 - Infraestrutura Docker + Laravel + PostgreSQL
@@ -24,6 +24,7 @@ Completed:
 - Cadastro de usuários no frontend implementado em /users/new com formulário Bootstrap, campos obrigatórios, validação via API, acesso restrito a ADMIN e botão "Novo Usuário" visível apenas para administradores
 - Edição de usuários no frontend implementada em /users/:id/edit com formulário Bootstrap, campos Nome e Tipo editáveis, e-mail somente leitura, ação "Editar" visível apenas para ADMIN, feedback de sucesso e tratamento de erros 422/403
 - Exclusão de usuários no frontend implementada na listagem com modal Bootstrap de confirmação, ação "Excluir" visível apenas para ADMIN, consumo de `DELETE /api/users/{id}`, atualização local da listagem e mensagens de sucesso/erro alinhadas à API
+- Correção de RQF-USER-003: ATTENDANT pode editar o próprio perfil; botão "Editar" visível apenas na própria linha para ATTENDANTs; campo "Tipo de Usuário" somente leitura para ATTENDANTs na tela de edição; ADMIN mantém acesso irrestrito a todos os usuários
 - Testes de atualização, exclusão, disponibilidades e build do frontend executados com sucesso
 
 In Progress:
