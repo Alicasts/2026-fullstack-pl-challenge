@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Implementar a edição de usuários conforme o requisito RQF-USER-003, com permissão por perfil, validação e persistência.
+Implementar a exclusão de usuários conforme o requisito RQF-USER-001, com permissão por perfil, regra do último administrador e persistência.
 
 Next step:
-Avançar para o próximo requisito do módulo de usuários apenas após validar a edição e a cobertura de testes.
+Avançar para o próximo módulo do backlog após validar a exclusão e a cobertura de testes.
 
 Blockers:
 Nenhum.
 
 Status:
-Edição de usuários concluída; autenticação, autorização base e testes de usuários já consolidados.
+Exclusão de usuários concluída; autenticação, autorização base, edição e testes de usuários já consolidados.

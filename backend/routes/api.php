@@ -10,6 +10,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function (): void {
     Route::get('/users', [UserController::class, 'index']);
     Route::put('/users/{user}', [UserController::class, 'update']);
+    Route::middleware('role:ADMIN')->delete('/users/{user}', [UserController::class, 'destroy']);
 
     Route::get('/me', function (Request $request) {
         return response()->json([
