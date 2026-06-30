@@ -37,6 +37,7 @@
 - [x] Modelagem
 - [x] Migration
 - [x] Seed administrador
+- [x] Listagem de usuários
 - [ ] CRUD
 - [ ] Validações
 - [ ] Testes

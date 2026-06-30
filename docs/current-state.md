@@ -13,6 +13,7 @@ Completed:
 - Autenticação com tokens funcionando
 - Rotas da API protegidas com `auth:sanctum`
 - Controle de acesso por perfil preparado com middleware simples
+- Listagem de usuários disponível para perfis autenticados
 
 In Progress:
 - Nenhum
