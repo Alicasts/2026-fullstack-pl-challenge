@@ -1,7 +1,7 @@
 # Current State
 
 Phase:
-Implementation — Incremento 10 concluído (Frontend Exclusão de Usuários)
+Implementation — Incremento 12 concluído (Frontend Módulo de Disponibilidades — EPIC 6 completo)
 
 Completed:
 - Infraestrutura Docker + Laravel + PostgreSQL
@@ -24,19 +24,25 @@ Completed:
 - Cadastro de usuários no frontend implementado em /users/new com formulário Bootstrap, campos obrigatórios, validação via API, acesso restrito a ADMIN e botão "Novo Usuário" visível apenas para administradores
 - Edição de usuários no frontend implementada em /users/:id/edit com formulário Bootstrap, campos Nome e Tipo editáveis, e-mail somente leitura, ação "Editar" visível apenas para ADMIN, feedback de sucesso e tratamento de erros 422/403
 - Exclusão de usuários no frontend implementada na listagem com modal Bootstrap de confirmação, ação "Excluir" visível apenas para ADMIN, consumo de `DELETE /api/users/{id}`, atualização local da listagem e mensagens de sucesso/erro alinhadas à API
-- Testes de atualização, exclusão, disponibilidades e build do frontend executados com sucesso
+- Correção de RQF-USER-003: ATTENDANT pode editar o próprio perfil; botão "Editar" visível apenas na própria linha para ATTENDANTs; campo "Tipo de Usuário" somente leitura para ATTENDANTs na tela de edição; ADMIN mantém acesso irrestrito a todos os usuários
+- Módulo de disponibilidades no frontend implementado (EPIC 6):
+  - Listagem de disponibilidades em /availabilities com tabela Bootstrap (atendente, dia da semana, hora inicial, hora final, status badge), modal de confirmação para exclusão, acesso restrito a ADMIN
+  - Cadastro de disponibilidades em /availabilities/new com formulário Bootstrap, seleção de atendente (apenas ATTENDANTs), dia da semana, hora inicial/final (input type="time"), status, validação via API, acesso restrito a ADMIN
+  - Edição de disponibilidades em /availabilities/:id/edit com formulário pré-preenchido, mesmos campos do cadastro, acesso restrito a ADMIN
+  - Exclusão de disponibilidades com modal de confirmação Bootstrap, consumo de `DELETE /api/availabilities/{id}` e atualização local da listagem
+- Navegação entre módulos: link "Disponibilidades" adicionado na tela de usuários (visível para ADMIN)
+- Build do frontend executado com sucesso (80 módulos, sem erros ou warnings)
 
 In Progress:
 - Nenhum
 
 Pending:
-- Módulo de disponibilidades no frontend (EPIC 6)
-- Regras de negócio do domínio de agendamentos
-- Evolução das regras específicas por perfil nos módulos de negócio
+- Módulo de agendamentos (modelagem, ocupação, regras de negócio) — fora do escopo da challenge mínima
+- EPIC 7 — Entrega: README final, revisão Docker, scripts de seed automatizados
 
 Notes:
-- O domínio de usuários está funcional na camada de dados e no frontend (listagem, cadastro, edição e exclusão para ADMIN).
-- A autenticação está concluída e a base de autorização por perfil já está pronta para os próximos módulos.
-- O módulo de disponibilidades já está disponível para administradores no backend e validado com testes.
-- O login do frontend já está funcional e integrado ao backend com token salvo no navegador.
-- Débito técnico aceito: chamadas duplicadas a `GET /api/me` em páginas distintas (`Users`, `UserCreate`, `UserEdit`); sem AuthContext ou cache de usuário neste estágio da challenge.
+- O domínio de usuários está funcional na camada de dados e no frontend (listagem, cadastro, edição e exclusão para ADMIN e ATTENDANT conforme permissões).
+- O módulo de disponibilidades está funcional ponta a ponta: backend (CRUD + slots) e frontend (listagem, cadastro, edição e exclusão, acesso ADMIN).
+- A autenticação está concluída e a base de autorização por perfil já está pronta.
+- Débito técnico aceito: chamadas independentes a `GET /api/me` em cada página; sem AuthContext ou cache de usuário neste estágio da challenge.
+- Inconsistência de convenção `day_of_week` no backend (validação `between:0,6` vs uso de `dayOfWeekIso` 1–7 no endpoint de slots) está documentada em open-questions e não é escopo do frontend corrigir.

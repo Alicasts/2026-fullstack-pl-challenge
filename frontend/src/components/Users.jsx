@@ -9,6 +9,7 @@ function Users() {
   const [currentUserRole, setCurrentUserRole] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [currentUserId, setCurrentUserId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [userToDelete, setUserToDelete] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -64,6 +65,7 @@ function Users() {
 
         setUsers(usersResponse.data || []);
         setCurrentUserRole(meResponse.data?.user?.role || null);
+        setCurrentUserId(meResponse.data?.user?.id || null);
       } catch (error) {
         setErrorMessage(error.response?.data?.message || 'Não foi possível carregar os usuários.');
       } finally {
@@ -78,11 +80,18 @@ function Users() {
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2 className="h4 mb-0">Usuários</h2>
-        {currentUserRole === 'ADMIN' ? (
-          <Link to="/users/new" className="btn btn-primary">
-            Novo Usuário
-          </Link>
-        ) : null}
+        <div className="d-flex gap-2">
+          {currentUserRole === 'ADMIN' ? (
+            <Link to="/availabilities" className="btn btn-outline-secondary btn-sm">
+              Disponibilidades
+            </Link>
+          ) : null}
+          {currentUserRole === 'ADMIN' ? (
+            <Link to="/users/new" className="btn btn-primary">
+              Novo Usuário
+            </Link>
+          ) : null}
+        </div>
       </div>
 
       {successMessage ? (
@@ -109,40 +118,48 @@ function Users() {
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Perfil</th>
-                {currentUserRole === 'ADMIN' ? <th>Ações</th> : null}
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
               {users.length === 0 ? (
                 <tr>
-                  <td colSpan={currentUserRole === 'ADMIN' ? 4 : 3} className="text-center">
+                  <td colSpan={4} className="text-center">
                     Nenhum usuário encontrado.
                   </td>
                 </tr>
               ) : (
-                users.map((user) => (
-                  <tr key={user.id}>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.role}</td>
-                    {currentUserRole === 'ADMIN' ? (
+                users.map((user) => {
+                  const canEdit =
+                    currentUserRole === 'ADMIN' || String(user.id) === String(currentUserId);
+                  const canDelete = currentUserRole === 'ADMIN';
+
+                  return (
+                    <tr key={user.id}>
+                      <td>{user.name}</td>
+                      <td>{user.email}</td>
+                      <td>{user.role}</td>
                       <td>
                         <div className="d-flex gap-2">
-                          <Link to={`/users/${user.id}/edit`} className="btn btn-sm btn-outline-primary">
-                            Editar
-                          </Link>
-                          <button
-                            type="button"
-                            className="btn btn-sm btn-outline-danger"
-                            onClick={() => setUserToDelete(user)}
-                          >
-                            Excluir
-                          </button>
+                          {canEdit ? (
+                            <Link to={`/users/${user.id}/edit`} className="btn btn-sm btn-outline-primary">
+                              Editar
+                            </Link>
+                          ) : null}
+                          {canDelete ? (
+                            <button
+                              type="button"
+                              className="btn btn-sm btn-outline-danger"
+                              onClick={() => setUserToDelete(user)}
+                            >
+                              Excluir
+                            </button>
+                          ) : null}
                         </div>
                       </td>
-                    ) : null}
-                  </tr>
-                ))
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>

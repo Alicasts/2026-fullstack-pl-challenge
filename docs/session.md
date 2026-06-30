@@ -1,16 +1,18 @@
 # Session
 
 Current objective:
-Incremento 10 concluído — exclusão de usuários no frontend (RQF-USER-001).
+Incremento 12 concluído — módulo de disponibilidades no frontend (EPIC 6 completo: listagem, cadastro, edição e exclusão).
 
 Next step:
-Avançar para o próximo requisito do backlog conforme definido (próximo item do EPIC 6 — Frontend).
+EPIC 7 — Entrega: revisar README, garantir Docker funcional end-to-end, documentar seeds e scripts de inicialização.
 
 Blockers:
 Nenhum.
 
 Status:
-Módulo de usuários no frontend concluído (listagem, cadastro, edição e exclusão); autenticação backend, usuários, disponibilidades e build do frontend consolidados.
+EPIC 6 (Frontend) concluído. Todos os módulos funcionais no frontend: autenticação, usuários (com permissões por perfil) e disponibilidades (acesso ADMIN). Backend consolidado com testes. Build do frontend limpo.
 
 Notes:
-- Débito técnico mantido: `GET /api/me` é chamado independentemente em cada página que precisa do perfil; refatoração para contexto global não está no escopo atual.
+- Débito técnico mantido: `GET /api/me` é chamado independentemente em cada página; refatoração para contexto global não está no escopo atual.
+- Módulo de agendamentos (EPIC 5 parcial) não foi implementado no frontend; o endpoint `GET /api/available-slots` existe no backend mas não tem tela correspondente.
+- Inconsistência de `day_of_week` entre validação (0–6) e uso interno (dayOfWeekIso 1–7) no backend está documentada e não corrigida neste incremento.

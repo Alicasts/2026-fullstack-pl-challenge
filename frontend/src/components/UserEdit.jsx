@@ -6,6 +6,7 @@ function UserEdit() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('ATTENDANT');
@@ -17,11 +18,22 @@ function UserEdit() {
     const loadPage = async () => {
       try {
         const meResponse = await api.get('/me');
+        const currentUser = meResponse.data?.user;
 
-        if (meResponse.data?.user?.role !== 'ADMIN') {
+        if (!currentUser) {
+          navigate('/login', { replace: true });
+          return;
+        }
+
+        const isAdmin = currentUser.role === 'ADMIN';
+        const isOwnProfile = String(currentUser.id) === String(id);
+
+        if (!isAdmin && !isOwnProfile) {
           navigate('/users', { replace: true });
           return;
         }
+
+        setIsAdmin(isAdmin);
 
         const usersResponse = await api.get('/users');
         const user = (usersResponse.data || []).find((item) => String(item.id) === String(id));
@@ -145,6 +157,7 @@ function UserEdit() {
                     value={role}
                     onChange={(event) => setRole(event.target.value)}
                     required
+                    disabled={!isAdmin}
                   >
                     <option value="ADMIN">Administrador</option>
                     <option value="ATTENDANT">Atendente</option>
