@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Consolidar autenticação com Sanctum e preparar autorização por perfil.
+Implementar cadastro de usuários para administradores com validação e persistência.
 
 Next step:
-Iniciar o CRUD de usuários já sobre a base autenticada e autorizada.
+Iniciar a edição de usuários apenas quando o cadastro estiver totalmente validado.
 
 Blockers:
 Nenhum.
 
 Status:
-Autenticação concluída; autorização base preparada.
+Cadastro de usuários em andamento; autenticação e autorização base já consolidadas.

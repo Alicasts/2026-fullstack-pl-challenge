@@ -58,6 +58,25 @@ Exemplo de resposta:
 }
 ```
 
+## Usuários
+
+Endpoints disponíveis:
+
+- `GET /api/users`
+- `POST /api/users` somente para `ADMIN`
+
+Exemplo de cadastro:
+
+```json
+{
+  "name": "Maria Silva",
+  "email": "maria@example.com",
+  "role": "ATTENDANT",
+  "password": "password123",
+  "password_confirmation": "password123"
+}
+```
+
 ## Testes
 
 ```bash

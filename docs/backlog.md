@@ -38,9 +38,10 @@
 - [x] Migration
 - [x] Seed administrador
 - [x] Listagem de usuários
+- [x] Cadastro de usuários
+- [x] Validações de cadastro
+- [x] Testes de cadastro
 - [ ] CRUD
-- [ ] Validações
-- [ ] Testes
 
 ---
 

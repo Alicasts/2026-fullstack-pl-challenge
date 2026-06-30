@@ -26,4 +26,6 @@ Route::middleware('auth:sanctum')->group(function (): void {
             'message' => 'ok',
         ]);
     });
+
+    Route::middleware('role:ADMIN')->post('/users', [UserController::class, 'store']);
 });
