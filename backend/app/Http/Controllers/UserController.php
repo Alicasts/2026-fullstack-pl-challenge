@@ -7,6 +7,7 @@ use App\Http\Requests\Users\StoreUserRequest;
 use App\Http\Requests\Users\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -64,5 +65,18 @@ class UserController extends Controller
             'email' => $user->email,
             'role' => $user->role->value,
         ]);
+    }
+
+    public function destroy(User $user)
+    {
+        if ($user->role === UserRole::ADMIN && User::query()->where('role', UserRole::ADMIN->value)->count() <= 1) {
+            return response()->json([
+                'message' => 'The last administrator cannot be deleted.',
+            ], 422);
+        }
+
+        $user->delete();
+
+        return response()->noContent();
     }
 }

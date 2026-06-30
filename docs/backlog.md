@@ -42,7 +42,7 @@
 - [x] Validações de cadastro
 - [x] Testes de cadastro
 - [x] Edição de usuários (RQF-USER-003)
-- [ ] Exclusão de usuários
+- [x] Exclusão de usuários (RQF-USER-001)
 
 ---
 

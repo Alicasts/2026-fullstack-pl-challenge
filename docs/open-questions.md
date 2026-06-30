@@ -42,6 +42,11 @@ Não existe definição sobre:
 
 ## Exclusão de usuários
 
+O comportamento atual do sistema para exclusão foi consolidado como:
+
+- bloquear a remoção do último administrador com `422`
+- remover o usuário quando a regra for respeitada
+
 Não está definido o comportamento quando existirem:
 
 - disponibilidades cadastradas
