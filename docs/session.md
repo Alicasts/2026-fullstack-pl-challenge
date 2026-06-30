@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Implementar a exclusão de usuários conforme o requisito RQF-USER-001, com permissão por perfil, regra do último administrador e persistência.
+Implementar o MVP do módulo de disponibilidades com CRUD simples, validações mínimas e controle de acesso por perfil.
 
 Next step:
-Avançar para o próximo módulo do backlog após validar a exclusão e a cobertura de testes.
+Avançar para o próximo requisito do backlog após validar o módulo de disponibilidades e a cobertura de testes.
 
 Blockers:
 Nenhum.
 
 Status:
-Exclusão de usuários concluída; autenticação, autorização base, edição e testes de usuários já consolidados.
+CRUD de disponibilidades concluído; autenticação, autorização base, usuários e testes do módulo já consolidados.

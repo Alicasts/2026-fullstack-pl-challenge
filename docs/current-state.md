@@ -1,7 +1,7 @@
 # Current State
 
 Phase:
-Implementation — Incremento 4 concluído (User Creation)
+Implementation — Incremento 5 concluído (Availability CRUD)
 
 Completed:
 - Infraestrutura Docker + Laravel + PostgreSQL
@@ -18,7 +18,8 @@ Completed:
 - Validação de cadastro implementada
 - Edição de usuários implementada para ADMIN e ATTENDANT com regras de permissão e validação
 - Exclusão de usuários implementada com regra de proteção do último administrador
-- Testes de atualização e exclusão de usuários executados com sucesso
+- CRUD de disponibilidades implementado para administradores com validações básicas
+- Testes de atualização, exclusão e disponibilidades executados com sucesso
 
 In Progress:
 - Nenhum
@@ -32,3 +33,4 @@ Notes:
 - O domínio de usuários está funcional na camada de dados.
 - A autenticação está concluída e a base de autorização por perfil já está pronta para os próximos módulos.
 - O cadastro de usuários já está disponível para administradores e validado com testes.
+- O módulo de disponibilidades já está disponível para administradores e validado com testes.
