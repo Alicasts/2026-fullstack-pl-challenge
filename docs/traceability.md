@@ -1,5 +1,13 @@
 # Matriz de Rastreabilidade
 
+## Infraestrutura de Autenticação
+
+| Requisito | Implementação | Teste | Status |
+|-----------|---------------|--------|--------|
+| INF-AUTH-001 | `POST /api/login` com Sanctum e token pessoal | `LoginTest::test_login_succeeds_with_valid_credentials` | ✅ |
+| INF-AUTH-002 | Rotas da API protegidas com `auth:sanctum` | `AuthorizationTest::test_access_without_token_returns_401` / `AuthorizationTest::test_access_with_valid_token_is_allowed` | ✅ |
+| INF-AUTH-003 | Middleware simples de perfil para ADMIN/ATTENDANT | `AuthorizationTest::test_admin_is_authorized_for_admin_route` / `AuthorizationTest::test_attendant_is_blocked_for_admin_route` | ✅ |
+
 | Requisito | Implementação | Teste | Status |
 |-----------|---------------|--------|--------|
 | RQF-USER-001 | — | — | 🚧 |
