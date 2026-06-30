@@ -1,0 +1,85 @@
+#!/bin/sh
+
+set -eu
+
+ROOT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+BACKEND_DIR="$ROOT_DIR/backend"
+
+usage() {
+    cat <<'EOF'
+Uso:
+  sh dev build
+  sh dev start-dev
+
+Comandos:
+  build      Prepara o ambiente completo, sobe o PostgreSQL, instala
+             dependências e roda migrations/seed.
+  start-dev  Sobe a stack em background e deixa a aplicação pronta para uso.
+EOF
+}
+
+compose() {
+    (cd "$ROOT_DIR" && docker compose "$@")
+}
+
+backend_exec() {
+    compose exec -T app "$@"
+}
+
+ensure_app_key() {
+    app_key=$(grep '^APP_KEY=' "$BACKEND_DIR/.env" | head -n 1 | cut -d= -f2-)
+
+    if [ -z "$app_key" ]; then
+        app_key=$(backend_exec php artisan key:generate --show | tr -d '\r')
+        php -r '
+$file = $argv[1];
+$key = $argv[2];
+$contents = file_get_contents($file);
+$contents = preg_replace("/^APP_KEY=.*$/m", "APP_KEY=".$key, $contents, 1);
+file_put_contents($file, $contents);
+' "$BACKEND_DIR/.env" "$app_key"
+    fi
+}
+
+install_dependencies() {
+    compose run --rm app composer install --no-interaction --prefer-dist
+}
+
+run_migrations() {
+    backend_exec php artisan migrate --force
+    backend_exec php artisan db:seed --force
+}
+
+build() {
+    compose build
+    compose up -d db
+    install_dependencies
+    compose up -d
+    ensure_app_key
+    run_migrations
+}
+
+start_dev() {
+    compose up -d --build
+    install_dependencies
+    ensure_app_key
+    run_migrations
+}
+
+if [ $# -ne 1 ]; then
+    usage
+    exit 1
+fi
+
+case "$1" in
+    build)
+        build
+        ;;
+    start-dev)
+        start_dev
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
+esac
