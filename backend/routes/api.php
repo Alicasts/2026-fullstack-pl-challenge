@@ -38,4 +38,6 @@ Route::middleware('auth:sanctum')->group(function (): void {
         Route::put('/availabilities/{availability}', [AvailabilityController::class, 'update']);
         Route::delete('/availabilities/{availability}', [AvailabilityController::class, 'destroy']);
     });
+
+    Route::get('/available-slots', [AvailabilityController::class, 'availableSlots']);
 });
