@@ -48,10 +48,10 @@
 
 ## EPIC 4 — Disponibilidade
 
-- [ ] Modelagem
-- [ ] CRUD
+- [x] Modelagem
+- [x] CRUD
 - [ ] Regras de disponibilidade
-- [ ] Testes
+- [x] Testes
 
 ---
 

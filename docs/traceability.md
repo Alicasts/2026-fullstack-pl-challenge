@@ -19,7 +19,13 @@ Este documento relaciona os requisitos extraídos com a implementação atual do
 | RQF-USER-003 | Administradores podem editar dados de qualquer usuário. Atendentes podem editar apenas os dados do próprio usuário. Os campos editáveis são os mesmos do cadastro, exceto e-mail e senha. As mesmas validações de cadastro devem ser aplicadas na edição. Ao salvar, o sistema deve validar e persistir as alterações. | `PUT /api/users/{user}` com `UserController@update`, `UpdateUserRequest`, autorização por perfil e atualização via Eloquent. | `UpdateUserTest` | ✅ |
 | RQF-USER-001 | Exclusão de usuários disponível apenas para administradores. O sistema deve preservar ao menos um administrador; se a tentativa violar essa regra, retorna `422` com a mensagem informada. | `DELETE /api/users/{user}` com `UserController@destroy`, proteção do último administrador e remoção via Eloquent. | `DeleteUserTest` | ✅ |
 
-## RQF2 - Módulo de Agendamentos
+## RQF2 - Módulo de Disponibilidades
+
+| Requisito | Descrição | Implementação | Teste | Status |
+|-----------|-----------|---------------|--------|--------|
+| RQF-AVAILABILITY-001 | Cadastro e gerenciamento simples de disponibilidades por atendente, com campos obrigatórios e validações básicas. | `GET/POST/PUT/DELETE /api/availabilities` com `AvailabilityController`, `FormRequest` e Eloquent. | `AvailabilityTest` | ✅ |
+
+## RQF3 - Módulo de Agendamentos
 
 | Requisito | Descrição | Implementação | Teste | Status |
 |-----------|-----------|---------------|--------|--------|
