@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import UserCreate from './components/UserCreate';
+import UserEdit from './components/UserEdit';
 import Users from './components/Users';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users />} />
         <Route path="/users/new" element={<UserCreate />} />
+        <Route path="/users/:id/edit" element={<UserEdit />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
