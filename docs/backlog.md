@@ -41,7 +41,8 @@
 - [x] Cadastro de usuários
 - [x] Validações de cadastro
 - [x] Testes de cadastro
-- [ ] CRUD
+- [x] Edição de usuários (RQF-USER-003)
+- [ ] Exclusão de usuários
 
 ---
 
