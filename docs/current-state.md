@@ -25,7 +25,6 @@ In Progress:
 - Nenhum
 
 Pending:
-- Nenhum
 - Regras de negócio do domínio de agendamentos
 - Evolução das regras específicas por perfil nos módulos de negócio
 

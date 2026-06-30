@@ -58,9 +58,9 @@
 ## EPIC 5 — Agendamentos
 
 - [ ] Modelagem
-- [ ] Consulta de horários
+- [x] Consulta de horários
 - [ ] Ocupação
-- [ ] Testes
+- [x] Testes
 
 ---
 

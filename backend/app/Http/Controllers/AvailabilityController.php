@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Availabilities\AvailableSlotsRequest;
 use App\Http\Requests\Availabilities\StoreAvailabilityRequest;
 use App\Http\Requests\Availabilities\UpdateAvailabilityRequest;
 use App\Models\Availability;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
@@ -61,5 +63,24 @@ class AvailabilityController extends Controller
         $availability->delete();
 
         return response()->noContent();
+    }
+
+    public function availableSlots(AvailableSlotsRequest $request): JsonResponse
+    {
+        $dayOfWeek = Carbon::parse($request->string('date')->toString())->dayOfWeekIso;
+
+        $slots = Availability::query()
+            ->where('user_id', $request->integer('attendant_id'))
+            ->where('active', true)
+            ->where('day_of_week', $dayOfWeek)
+            ->orderBy('start_time')
+            ->get()
+            ->map(static fn (Availability $availability): array => [
+                'start_time' => substr($availability->start_time, 0, 5),
+                'end_time' => substr($availability->end_time, 0, 5),
+            ])
+            ->values();
+
+        return response()->json($slots);
     }
 }
