@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Implementar o MVP do módulo de disponibilidades com CRUD simples, validações mínimas e controle de acesso por perfil.
+Implementar a listagem de usuários no frontend consumindo o endpoint existente, com tabela Bootstrap e tratamento simples de erro.
 
 Next step:
-Avançar para o próximo requisito do backlog após validar o módulo de disponibilidades e a cobertura de testes.
+Avançar para o próximo requisito do backlog após validar a listagem de usuários e a integração com a API.
 
 Blockers:
 Nenhum.
 
 Status:
-CRUD de disponibilidades concluído; autenticação, autorização base, usuários e testes do módulo já consolidados.
+Listagem de usuários concluída; login do frontend, autenticação backend, usuários, disponibilidades e build do frontend já consolidados.
