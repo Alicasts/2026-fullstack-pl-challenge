@@ -1,17 +1,18 @@
 # Session
 
 Current objective:
-Incremento 11 concluído — correção de RQF-USER-003 no frontend (edição do próprio perfil por ATTENDANT).
+Incremento 12 concluído — módulo de disponibilidades no frontend (EPIC 6 completo: listagem, cadastro, edição e exclusão).
 
 Next step:
-Avançar para o próximo requisito do backlog conforme definido (próximo item do EPIC 6 — Frontend de Disponibilidades).
+EPIC 7 — Entrega: revisar README, garantir Docker funcional end-to-end, documentar seeds e scripts de inicialização.
 
 Blockers:
 Nenhum.
 
 Status:
-Módulo de usuários no frontend totalmente concluído e alinhado ao RQF-USER-003; autenticação backend, usuários, disponibilidades e build do frontend consolidados.
+EPIC 6 (Frontend) concluído. Todos os módulos funcionais no frontend: autenticação, usuários (com permissões por perfil) e disponibilidades (acesso ADMIN). Backend consolidado com testes. Build do frontend limpo.
 
 Notes:
-- Débito técnico mantido: `GET /api/me` é chamado independentemente em cada página que precisa do perfil; refatoração para contexto global não está no escopo atual.
-- ATTENDANT só visualiza o botão "Editar" na própria linha da tabela; campo "Tipo de Usuário" é somente leitura na tela de edição para perfil ATTENDANT.
+- Débito técnico mantido: `GET /api/me` é chamado independentemente em cada página; refatoração para contexto global não está no escopo atual.
+- Módulo de agendamentos (EPIC 5 parcial) não foi implementado no frontend; o endpoint `GET /api/available-slots` existe no backend mas não tem tela correspondente.
+- Inconsistência de `day_of_week` entre validação (0–6) e uso interno (dayOfWeekIso 1–7) no backend está documentada e não corrigida neste incremento.

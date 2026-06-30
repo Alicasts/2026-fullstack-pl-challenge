@@ -7,19 +7,19 @@
 - [x] Configurar .env
 - [x] Conectar Laravel ao PostgreSQL
 - [x] Rodar migrations base
-- [ ] Criar migration inicial de users (estrutura mínima)
+- [x] Criar migration inicial de users (estrutura mínima)
 - [ ] Validar ambiente (health check endpoint)
 
 ---
 
 ## EPIC 2 — Arquitetura
 
-- [ ] Definir camadas
-- [ ] Definir padrão de controllers
+- [x] Definir camadas (Controller → FormRequest → Model → PostgreSQL)
+- [x] Definir padrão de controllers
 - [ ] Definir padrão de services
 - [ ] Definir repositories
-- [ ] Definir tratamento de erros
-- [ ] Definir estrutura das respostas HTTP
+- [x] Definir tratamento de erros
+- [x] Definir estrutura das respostas HTTP
 
 ---
 
@@ -50,7 +50,7 @@
 
 - [x] Modelagem
 - [x] CRUD
-- [ ] Regras de disponibilidade
+- [ ] Regras de disponibilidade (sobreposição, slots)
 - [x] Testes
 
 ---
@@ -58,27 +58,26 @@
 ## EPIC 5 — Agendamentos
 
 - [ ] Modelagem
-- [x] Consulta de horários
+- [x] Consulta de horários (endpoint GET /api/available-slots)
 - [ ] Ocupação
-- [x] Testes
+- [ ] Testes completos de agendamento
 
 ---
 
 ## EPIC 6 — Frontend
 
-- [ ] Layout
-- [ ] Usuários
-- [ ] Disponibilidade
-- [ ] Consulta
-- [ ] Tratamento de erros
+- [x] Layout (Bootstrap via CDN, roteamento React Router)
+- [x] Usuários (listagem, cadastro, edição, exclusão, permissões por perfil)
+- [x] Disponibilidade (listagem, cadastro, edição, exclusão — ADMIN only)
+- [ ] Consulta de horários disponíveis (tela frontend para RQF-SCHEDULE-003)
+- [x] Tratamento de erros (alertas Bootstrap, feedback 422/403/404)
 
 ---
 
 ## EPIC 7 — Entrega
 
-- [ ] README
-- [ ] Docker funcional
-- [ ] Banco inicializado
-- [ ] Seeds
-- [ ] Scripts
+- [ ] README final completo
+- [ ] Docker funcional end-to-end verificado
+- [ ] Banco inicializado com seed automatizado
+- [ ] Scripts de inicialização documentados
 - [ ] Revisão final

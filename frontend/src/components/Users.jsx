@@ -80,11 +80,18 @@ function Users() {
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2 className="h4 mb-0">Usuários</h2>
-        {currentUserRole === 'ADMIN' ? (
-          <Link to="/users/new" className="btn btn-primary">
-            Novo Usuário
-          </Link>
-        ) : null}
+        <div className="d-flex gap-2">
+          {currentUserRole === 'ADMIN' ? (
+            <Link to="/availabilities" className="btn btn-outline-secondary btn-sm">
+              Disponibilidades
+            </Link>
+          ) : null}
+          {currentUserRole === 'ADMIN' ? (
+            <Link to="/users/new" className="btn btn-primary">
+              Novo Usuário
+            </Link>
+          ) : null}
+        </div>
       </div>
 
       {successMessage ? (
