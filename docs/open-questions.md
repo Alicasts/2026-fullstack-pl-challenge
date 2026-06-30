@@ -6,20 +6,6 @@ Somente serão resolvidas quando houver informação suficiente.
 
 ---
 
-## Autenticação
-
-O desafio não especifica:
-
-- Login
-- Sessão
-- JWT
-- Basic Auth
-- Mock
-
-A estratégia será definida durante o desenho da arquitetura.
-
----
-
 ## Exclusão do último administrador
 
 O desafio informa apenas:

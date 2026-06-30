@@ -23,6 +23,15 @@
 
 ---
 
+## EPIC 2.1 — Autenticação e Autorização
+
+- [x] Implementar login com Sanctum
+- [x] Proteger rotas de API com `auth:sanctum`
+- [x] Preparar controle de acesso por perfil com middleware simples
+- [x] Testes de autenticação e autorização
+
+---
+
 ## EPIC 3 — Usuários
 
 - [x] Modelagem

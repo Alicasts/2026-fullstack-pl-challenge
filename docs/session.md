@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Finalizar base do domínio de usuários e preparar autenticação.
+Consolidar autenticação com Sanctum e preparar autorização por perfil.
 
 Next step:
-Implementar autenticação (login + token) e controle de acesso por perfil.
+Iniciar o CRUD de usuários já sobre a base autenticada e autorizada.
 
 Blockers:
 Nenhum.
 
 Status:
-Incremento 2 concluído com sucesso.
+Autenticação concluída; autorização base preparada.

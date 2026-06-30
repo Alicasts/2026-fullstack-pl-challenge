@@ -105,6 +105,7 @@ Toda regra de negócio deverá possuir testes automatizados.
 - O desafio exige controle de permissões entre Administrador e Atendente.
 - Será necessária autenticação para proteger endpoints.
 - O desafio não especifica JWT, sessão ou outro mecanismo.
+- A implementação de login via `/api/login` já está concluída.
 
 ## Decisão
 
@@ -117,6 +118,7 @@ Toda regra de negócio deverá possuir testes automatizados.
 - Menor complexidade que JWT.
 - Atende completamente aos requisitos da challenge.
 - Facilita proteção de rotas com middleware nativo.
+- O login já emite Personal Access Token e as rotas protegidas passam a usar `auth:sanctum`.
 
 ## Alternativas
 
@@ -130,6 +132,7 @@ Toda regra de negócio deverá possuir testes automatizados.
 - Menor esforço de manutenção.
 - Solução conhecida por desenvolvedores Laravel.
 - Boa integração com testes.
+- Autenticação consolidada com base pronta para autorização por perfil.
 
 * Negativas
 - Dependência de um pacote oficial adicional (embora mantido pelo ecossistema Laravel).
