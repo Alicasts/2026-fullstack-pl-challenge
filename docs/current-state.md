@@ -16,12 +16,13 @@ Completed:
 - Listagem de usuários disponível para perfis autenticados
 - Cadastro de usuários implementado com permissão exclusiva para ADMIN
 - Validação de cadastro implementada
+- Edição de usuários implementada para ADMIN e ATTENDANT com regras de permissão e validação
+- Testes de atualização de usuários executados com sucesso
 
 In Progress:
 - Nenhum
 
 Pending:
-- Edição de usuários
 - Exclusão de usuários
 - Regras de negócio do domínio de agendamentos
 - Evolução das regras específicas por perfil nos módulos de negócio

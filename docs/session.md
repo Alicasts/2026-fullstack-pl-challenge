@@ -1,13 +1,13 @@
 # Session
 
 Current objective:
-Implementar cadastro de usuários para administradores com validação e persistência.
+Implementar a edição de usuários conforme o requisito RQF-USER-003, com permissão por perfil, validação e persistência.
 
 Next step:
-Iniciar a edição de usuários apenas quando o cadastro estiver totalmente validado.
+Avançar para o próximo requisito do módulo de usuários apenas após validar a edição e a cobertura de testes.
 
 Blockers:
 Nenhum.
 
 Status:
-Cadastro de usuários em andamento; autenticação e autorização base já consolidadas.
+Edição de usuários concluída; autenticação, autorização base e testes de usuários já consolidados.
