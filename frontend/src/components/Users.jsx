@@ -1,16 +1,23 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../api/axios';
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [currentUserRole, setCurrentUserRole] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadUsers = async () => {
       try {
-        const response = await api.get('/users');
-        setUsers(response.data || []);
+        const [usersResponse, meResponse] = await Promise.all([
+          api.get('/users'),
+          api.get('/me'),
+        ]);
+
+        setUsers(usersResponse.data || []);
+        setCurrentUserRole(meResponse.data?.user?.role || null);
       } catch (error) {
         setErrorMessage(error.response?.data?.message || 'Não foi possível carregar os usuários.');
       } finally {
@@ -25,9 +32,11 @@ function Users() {
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2 className="h4 mb-0">Usuários</h2>
-        <button type="button" className="btn btn-primary">
-          Novo Usuário
-        </button>
+        {currentUserRole === 'ADMIN' ? (
+          <Link to="/users/new" className="btn btn-primary">
+            Novo Usuário
+          </Link>
+        ) : null}
       </div>
 
       {errorMessage ? (
