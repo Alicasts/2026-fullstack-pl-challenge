@@ -10,7 +10,7 @@
 
 | Requisito | Implementação | Teste | Status |
 |-----------|---------------|--------|--------|
-| RQF-USER-001 | — | — | 🚧 |
+| RQF-USER-001 | `GET /api/users` autenticado com listagem única para todos os perfis | `ListUsersTest::test_admin_and_attendant_receive_the_same_users_list` | ✅ |
 | RQF-USER-002 | — | — | ⏳ |
 | RQF-USER-003 | — | — | ⏳ |
 | RQF-USER-004 | — | — | ⏳ |
