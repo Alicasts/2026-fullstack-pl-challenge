@@ -10,6 +10,42 @@ function Users() {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [userToDelete, setUserToDelete] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const closeDeleteModal = () => {
+    if (!isDeleting) {
+      setUserToDelete(null);
+    }
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!userToDelete) {
+      return;
+    }
+
+    setErrorMessage('');
+    setSuccessMessage('');
+    setIsDeleting(true);
+
+    try {
+      await api.delete(`/users/${userToDelete.id}`);
+
+      setUsers((currentUsers) => currentUsers.filter((user) => user.id !== userToDelete.id));
+      setSuccessMessage('Usuário excluído com sucesso.');
+      setUserToDelete(null);
+    } catch (error) {
+      if (error.response?.status === 422 || error.response?.status === 403 || error.response?.status === 404) {
+        setErrorMessage(error.response?.data?.message || 'Não foi possível excluir o usuário.');
+      } else {
+        setErrorMessage(error.response?.data?.message || 'Ocorreu um erro inesperado ao excluir o usuário.');
+      }
+
+      setUserToDelete(null);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
 
   useEffect(() => {
     if (location.state?.successMessage) {
@@ -91,9 +127,18 @@ function Users() {
                     <td>{user.role}</td>
                     {currentUserRole === 'ADMIN' ? (
                       <td>
-                        <Link to={`/users/${user.id}/edit`} className="btn btn-sm btn-outline-primary">
-                          Editar
-                        </Link>
+                        <div className="d-flex gap-2">
+                          <Link to={`/users/${user.id}/edit`} className="btn btn-sm btn-outline-primary">
+                            Editar
+                          </Link>
+                          <button
+                            type="button"
+                            className="btn btn-sm btn-outline-danger"
+                            onClick={() => setUserToDelete(user)}
+                          >
+                            Excluir
+                          </button>
+                        </div>
                       </td>
                     ) : null}
                   </tr>
@@ -103,6 +148,63 @@ function Users() {
           </table>
         </div>
       )}
+
+      {userToDelete ? (
+        <>
+          <div
+            className="modal fade show d-block"
+            tabIndex="-1"
+            role="dialog"
+            aria-labelledby="deleteUserModalLabel"
+            aria-modal="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="deleteUserModalLabel">
+                    Confirmar exclusão
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    aria-label="Fechar"
+                    onClick={closeDeleteModal}
+                    disabled={isDeleting}
+                  />
+                </div>
+                <div className="modal-body">
+                  <p className="mb-2">Deseja realmente excluir este usuário?</p>
+                  <p className="mb-1">
+                    <strong>Nome:</strong> {userToDelete.name}
+                  </p>
+                  <p className="mb-0">
+                    <strong>E-mail:</strong> {userToDelete.email}
+                  </p>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={closeDeleteModal}
+                    disabled={isDeleting}
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={handleDeleteConfirm}
+                    disabled={isDeleting}
+                  >
+                    {isDeleting ? 'Excluindo...' : 'Confirmar exclusão'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal-backdrop fade show" />
+        </>
+      ) : null}
     </div>
   );
 }
