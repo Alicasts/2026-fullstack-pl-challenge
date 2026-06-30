@@ -1,13 +1,16 @@
 # Session
 
 Current objective:
-Incremento 8 concluído — cadastro de usuários no frontend (RQF-USER-002).
+Incremento 9 concluído — edição de usuários no frontend (RQF-USER-001 / RQF-USER-003).
 
 Next step:
-Avançar para o próximo requisito do backlog conforme definido (edição/exclusão de usuários no frontend ou próximo item do EPIC 6).
+Avançar para o próximo requisito do backlog conforme definido (exclusão de usuários no frontend ou próximo item do EPIC 6).
 
 Blockers:
 Nenhum.
 
 Status:
-Cadastro de usuários no frontend concluído; login, listagem, autenticação backend, usuários, disponibilidades e build do frontend consolidados.
+Edição de usuários no frontend concluída; cadastro, login, listagem, autenticação backend, usuários, disponibilidades e build do frontend consolidados.
+
+Notes:
+- Débito técnico mantido: `GET /api/me` é chamado independentemente em cada página que precisa do perfil; refatoração para contexto global não está no escopo atual.

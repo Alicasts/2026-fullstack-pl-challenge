@@ -1,7 +1,7 @@
 # Current State
 
 Phase:
-Implementation — Incremento 8 concluído (Frontend Cadastro de Usuários)
+Implementation — Incremento 9 concluído (Frontend Edição de Usuários)
 
 Completed:
 - Infraestrutura Docker + Laravel + PostgreSQL
@@ -22,20 +22,22 @@ Completed:
 - Login do frontend implementado com formulário, consumo do endpoint /api/login, salvamento do token e redirecionamento para /users
 - Listagem de usuários implementada na página /users com tabela Bootstrap e tratamento de erro
 - Cadastro de usuários no frontend implementado em /users/new com formulário Bootstrap, campos obrigatórios, validação via API, acesso restrito a ADMIN e botão "Novo Usuário" visível apenas para administradores
+- Edição de usuários no frontend implementada em /users/:id/edit com formulário Bootstrap, campos Nome e Tipo editáveis, e-mail somente leitura, ação "Editar" visível apenas para ADMIN, feedback de sucesso e tratamento de erros 422/403
 - Testes de atualização, exclusão, disponibilidades e build do frontend executados com sucesso
 
 In Progress:
 - Nenhum
 
 Pending:
-- Edição e exclusão de usuários no frontend (RQF-USER-001 / RQF-USER-003)
+- Exclusão de usuários no frontend (RQF-USER-001)
 - Regras de negócio do domínio de agendamentos
 - Evolução das regras específicas por perfil nos módulos de negócio
 
 Notes:
 - O domínio de usuários está funcional na camada de dados.
 - A autenticação está concluída e a base de autorização por perfil já está pronta para os próximos módulos.
-- O cadastro de usuários já está disponível para administradores no backend e no frontend, com validação e tratamento de erros.
+- O cadastro e a edição de usuários já estão disponíveis para administradores no frontend, com validação e tratamento de erros.
 - O módulo de disponibilidades já está disponível para administradores e validado com testes.
 - O login do frontend já está funcional e integrado ao backend com token salvo no navegador.
 - A listagem de usuários já está disponível na interface com dados carregados do backend.
+- Débito técnico aceito: chamadas duplicadas a `GET /api/me` em páginas distintas (`Users`, `UserCreate`, `UserEdit`); sem AuthContext ou cache de usuário neste estágio da challenge.

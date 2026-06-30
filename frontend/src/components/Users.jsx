@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 
 function Users() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [currentUserRole, setCurrentUserRole] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (location.state?.successMessage) {
+      setSuccessMessage(location.state.successMessage);
+      navigate('.', { replace: true, state: {} });
+    }
+  }, [location.state, navigate]);
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -39,6 +49,12 @@ function Users() {
         ) : null}
       </div>
 
+      {successMessage ? (
+        <div className="alert alert-success" role="alert">
+          {successMessage}
+        </div>
+      ) : null}
+
       {errorMessage ? (
         <div className="alert alert-danger" role="alert">
           {errorMessage}
@@ -57,12 +73,13 @@ function Users() {
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Perfil</th>
+                {currentUserRole === 'ADMIN' ? <th>Ações</th> : null}
               </tr>
             </thead>
             <tbody>
               {users.length === 0 ? (
                 <tr>
-                  <td colSpan="3" className="text-center">
+                  <td colSpan={currentUserRole === 'ADMIN' ? 4 : 3} className="text-center">
                     Nenhum usuário encontrado.
                   </td>
                 </tr>
@@ -72,6 +89,13 @@ function Users() {
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.role}</td>
+                    {currentUserRole === 'ADMIN' ? (
+                      <td>
+                        <Link to={`/users/${user.id}/edit`} className="btn btn-sm btn-outline-primary">
+                          Editar
+                        </Link>
+                      </td>
+                    ) : null}
                   </tr>
                 ))
               )}
